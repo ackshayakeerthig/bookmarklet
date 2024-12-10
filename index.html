@@ -1,1 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decryption Tool</title>
+    <script>
+        function decryptFlag() {
+            var encryptedFlag = "íØËÓ¥ÌØ§ìÙ¨ÒÔÛÓÒÝ¡­«ÔÜÔ­ÓÑ£ÖÎÇ­";
+            var key = "picoctf";
+            var decryptedFlag = "";
+            for (var i = 0; i < encryptedFlag.length; i++) {
+                decryptedFlag += String.fromCharCode((encryptedFlag.charCodeAt(i) - key.charCodeAt(i % key.length) + 256) % 256);
+            }
+            document.getElementById("result").value = decryptedFlag;
+        }
+    </script>
+</head>
+<body>
+    <h1>Decryption Tool</h1>
+    <label for="result">Decrypted Flag:</label>
+    <input type="text" id="result" readonly>
+    <button onclick="decryptFlag()">Decrypt</button>
+</body>
+</html>
 
